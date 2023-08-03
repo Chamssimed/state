@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [person, setperson] = useState({
+    fullname: "amine ch",
+    prof: "ingenieur",
+    show: false,
+  });
+
+  return <div className="App">
+<button onClick={()=>setperson({...person,show:!person.show})}>show</button>
+{
+person.show==true?(
+  <>
+  <h1>{person.fullname}</h1>
+  <h2>{person.prof}</h2>
+  </>
+):null
+
+}
+  </div>;
+
 }
 
 export default App;
